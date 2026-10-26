@@ -1,6 +1,6 @@
 # Implementierungsstand und Claim-Matrix
 
-Die Einstufung basiert auf statischer Inspektion des lokalen Quellstands, nicht auf übernommenen Marketingtexten oder dem Erfolg eines nativen Builds. Fingerprints stehen in [PROVENANCE.json](PROVENANCE.json).
+Die Einstufung basiert auf statischer Inspektion und einem begrenzten, synthetischen iOS-Simulator-Lauf, nicht auf übernommenen Marketingtexten. Analyse-Fingerprints stehen in [PROVENANCE.json](PROVENANCE.json); Aufnahmeherkunft und Laufzeitgrenzen in [SCREENSHOTS.json](SCREENSHOTS.json) und [VALIDATION.md](VALIDATION.md).
 
 | Aussage | Quellbeleg relativ zum App-Verzeichnis `apps/predictive/` | Reichweite |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ Die Einstufung basiert auf statischer Inspektion des lokalen Quellstands, nicht 
 
 ## Nicht behauptete Ergebnisse
 
-Keine Nutzerzahlen, Conversion-, Retention- oder Erfolgsquoten. Keine wissenschaftliche oder klinische Prüfung. Kein Nachweis einer erfolgreichen Store-Veröffentlichung, von Skalierbarkeit oder von produktivem Push-Versand. Paketversionen und Buildprofile sind keine Release-Nachweise. Keine Behauptung eigenständiger Geräte-/Human-Evaluation: Diese Auswahl wurde assistentengestützt statisch geprüft und lokal auf Funktionsebene getestet.
+Keine Nutzerzahlen, Conversion-, Retention- oder Erfolgsquoten. Keine wissenschaftliche oder klinische Prüfung. Kein Nachweis einer erfolgreichen Store-Veröffentlichung, von Skalierbarkeit oder von produktivem Push-Versand. Paketversionen und Buildprofile sind keine Release-Nachweise. Keine Behauptung eigenständiger Geräte-/Human-Evaluation: Diese Auswahl wurde assistentengestützt statisch geprüft, lokal auf Funktionsebene getestet und im dokumentierten iOS-Simulator-Ausschnitt mit synthetischen Daten ausgeführt.
 
 ## Nächste sinnvolle Nachweise
 

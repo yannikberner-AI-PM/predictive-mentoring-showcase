@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "data_classification": "synthetic-only",
+  "capture_kind": "native-ios-simulator",
+  "runtime": {
+    "device": "iPhone 17 Pro",
+    "os": "iOS 26.5",
+    "host": "macOS; Xcode 27.0 (27A266a)",
+    "client": "Expo Go 57.0.9",
+    "expo": "57.0.16",
+    "react_native": "0.86.2",
+    "model": "deterministic-local-helper; OS model unavailable"
+  },
+  "source": {
+    "root": "predictive-app",
+    "selection": "Committed app snapshot archived to isolated scratch directory; no dotenv, app state, credentials or private Git history copied. Temporary fixture loader removed and every tracked app file compared byte-for-byte to original committed snapshot before capture. Original working tree unchanged.",
+    "fingerprints": [
+      {
+        "source": "apps/predictive/index.ts",
+        "sha256": "5c157f4d44972d9c84415e1e4bda595b3abcd8cf733f8a9cd20935bec3eccc42"
+      },
+      {
+        "source": "apps/predictive/App.tsx",
+        "sha256": "e4d35a9f3a64008fbd058131c235726ce76b3aadf1b0ee26ff4d4d00a204c152"
+      },
+      {
+        "source": "apps/predictive/package.json",
+        "sha256": "cefc68fae5da7c8dd6b851176210b95fc710ae6f255278d4f779db5ce81ad1fa"
+      },
+      {
+        "source": "apps/predictive/package-lock.json",
+        "sha256": "704bb8c66904d42d03b8c39140b4fb9d4c3b86b8710a597d13084cbeb5045747"
+      },
+      {
+        "source": "apps/predictive/src/screens/GoalsListScreen.tsx",
+        "sha256": "fbc6d8b2a26a5204f25204bb73b5dc53a7e01a99e58874f35f35596271cf2e96"
+      },
+      {
+        "source": "apps/predictive/src/screens/QuickLogScreen.tsx",
+        "sha256": "b6286e121c1bc7f22c83babc6c94584231783b9928e9b85be94c2ef73e4dc5ef"
+      },
+      {
+        "source": "apps/predictive/src/screens/HomeScreen.tsx",
+        "sha256": "f74637d0f9bfeb9211e6ca0972dc4196883c16b2a161c313e659505885e1d4d5"
+      },
+      {
+        "source": "apps/predictive/src/screens/SuggestionScreen.tsx",
+        "sha256": "b9ed8cae9a0572d9992a879eb5619168dad89573e23dd85d2c11a8bde6cc9223"
+      },
+      {
+        "source": "apps/predictive/src/db/client.ts",
+        "sha256": "fabfac8e3c896254dbeb5b4c5be5bd1011659d3e84ec433e4f5b5a2e7a8da87c"
+      },
+      {
+        "source": "apps/predictive/src/db/schema.ts",
+        "sha256": "3927ec1a8d79405220e01667e83ac720d62d95a4c14d163c1f18464b09506888"
+      },
+      {
+        "source": "apps/predictive/src/db/goals.ts",
+        "sha256": "7fb4df7f533f72b3561b82297505ff722b08ea23c3d8b341bfed8d5254e39ef8"
+      },
+      {
+        "source": "apps/predictive/src/db/datapoints.ts",
+        "sha256": "0f7b048528edb7af2c41829dec07bd08cb76412bd79a194753ef0a96e0b7cc71"
+      },
+      {
+        "source": "apps/predictive/src/lib/auth.tsx",
+        "sha256": "0842829589e8ea6e2604bb854536c841081753b04d58a600e0ce89d4497ddaa1"
+      },
+      {
+        "source": "apps/predictive/src/lib/supabase.ts",
+        "sha256": "9bf203cb4efb65dfe2ba78f9cfce356a9b6ecf0e16883f9211697665adc46cf2"
+      },
+      {
+        "source": "apps/predictive/src/services/prediction/model.ts",
+        "sha256": "2e22dcf0602d749c98b56994416f20f7e04612c8de4d76eb0f8d6be0262519ad"
+      },
+      {
+        "source": "apps/predictive/src/services/llm/fallback.ts",
+        "sha256": "78433fa0ee7c3547ca35bc2910638abf94670d0b6bdf66d5c7b2dca983c07b95"
+      }
+    ]
+  },
+  "isolation": {
+    "storage": "New dedicated simulator and fresh Expo Go app container; synthetic local development session only.",
+    "auth": "Existing local-session mechanism; no Supabase configuration, no real account or external authentication. EXPO_NO_DOTENV=1.",
+    "fixture_setup": "Temporary scratch-only entry-point wrapper used production createGoal/addDataPoint/setMeta and AsyncStorage; it and its imports were removed before capture; onboarding marked complete for this limited flow.",
+    "capture_settings": "Simulator status bar set to 09:41 / full battery; Expo Go floating developer button disabled via its preference. No app UI changes. Keyboard dismissed through React Native Keyboard.dismiss over local inspector.",
+    "publication": "Only reviewed screenshots and documentation; no database, session, launch configuration, private app code or history."
+  },
+  "synthetic_fixture": {
+    "month": "2026-10",
+    "goals": [
+      {
+        "title": "Bewegung im Alltag",
+        "type": "fitness",
+        "category": "health",
+        "target": 12,
+        "subtitle": "12 Bewegungseinheiten · synthetisches Beispiel",
+        "seeded_log_type": "workout",
+        "seeded_days": [
+          1,
+          3,
+          6,
+          8,
+          10,
+          13,
+          16,
+          19,
+          22
+        ]
+      },
+      {
+        "title": "Regelmäßig lesen",
+        "type": "habit",
+        "category": "growth",
+        "target": 20,
+        "subtitle": "20 Lesetage · synthetisches Beispiel",
+        "seeded_log_type": "habit",
+        "seeded_days": [
+          2,
+          5,
+          9,
+          14,
+          18
+        ]
+      }
+    ],
+    "seeded_values": 1,
+    "seeded_local_time": "12:00:00",
+    "seeded_note": "Synthetischer Showcase-Eintrag",
+    "ui_action": {
+      "note": "20 Minuten Bewegung · synthetischer Testeintrag",
+      "type": "workout",
+      "value": 1,
+      "goal": "Bewegung im Alltag",
+      "date": "2026-10-26"
+    },
+    "verification": {
+      "initial_logs": 14,
+      "final_logs": 15,
+      "final_workouts": 10,
+      "final_habits": 5,
+      "goal_count": 2,
+      "sqlite_readback": "Exact UI-written note persisted once, linked to intended synthetic fitness goal.",
+      "health_before_percent": 62,
+      "health_after_percent": 66,
+      "growth_before_and_after_percent": 43,
+      "suggestion_detail": "Opened full local-helper suggestion from dashboard."
+    }
+  },
+  "processing": "Only sRGB and EXIF metadata chunks removed. IHDR/IDAT/IEND retained; compressed image payload unchanged. No crop, resize, compositing, redaction or pixel retouch.",
+  "review": {
+    "kind": "assistant-led visual inspection",
+    "result": "All three images readable; no personal data, error overlay, Expo developer gear or keyboard. Dashboard suggestion is truncated to three lines by original UI; full detail was opened separately."
+  },
+  "limits": [
+    "Simulator only; not a signed custom native build or physical-device result.",
+    "No Apple Intelligence, Gemini Nano, Health, Calendar, push, external auth or store proof.",
+    "Percentages are heuristic prototype outputs, not calibrated probabilities or efficacy evidence."
+  ],
+  "files": [
+    {
+      "file": "assets/screenshots/goals.png",
+      "screen": "GoalsListScreen",
+      "phase": "before-save",
+      "captured_at": "2026-10-26T19:07:20.607154+00:00",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "8ba94bd3ab137171418feb9a02766740c2506c636beceb28a7f3fa0bb2a659da",
+      "original_capture_sha256": "0d148e103948d795876c2a30281d4980cf2ef2861f3c01a85d75f399ba94c377",
+      "idat_sha256": "668c323a61eb1f9cadeb802e7ca5126bff5366b775480d2b1189552e16c78c68"
+    },
+    {
+      "file": "assets/screenshots/daily-action.png",
+      "screen": "QuickLogScreen",
+      "phase": "before-save",
+      "captured_at": "2026-10-26T19:08:25.975170+00:00",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "e072fa5e10712e9ce0ee7dbf42f4a5ad6cbf52971f50bee823103ec8a7b486da",
+      "original_capture_sha256": "9aac9d90771a4aef452010161b3207d6a597e7c0726f8001cafc72d702cd1460",
+      "idat_sha256": "d30a23f6b16f39de8a4e4c97e5e6065c4476845a0515db237a543ce81ef1b75c"
+    },
+    {
+      "file": "assets/screenshots/progress-mentoring.png",
+      "screen": "HomeScreen",
+      "phase": "after-save",
+      "captured_at": "2026-10-26T19:09:03.975178+00:00",
+      "width": 1206,
+      "height": 2622,
+      "sha256": "dca7890d1bb4f8258197fcf95690a9a666087e7894a803fb3218d30cfce21a62",
+      "original_capture_sha256": "45aeaabe6ae63c0d1a396a42bf810a309acc0ea57d67f4c7fedb4d13189dbfa5",
+      "idat_sha256": "9bdc5947b9690dc10e401c647ee515d7ba6bb0c6f81dab13ecbb0a16031f1c2d"
+    }
+  ]
+}

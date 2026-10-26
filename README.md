@@ -6,7 +6,31 @@ MIOVO ist ein mobiler React-Native-/Expo-Prototyp für persönliche Zielarbeit. 
 
 <img src="assets/app-icon.png" alt="Vorhandenes abstraktes MIOVO-App-Icon" width="128">
 
-Das vorhandene App-Icon ist ein visuelles Asset, **kein Screenshot und kein Funktionsnachweis**. Es enthält keine sichtbaren Personendaten. Auf Screenshots mit möglicherweise privaten Inhalten wird bewusst verzichtet.
+Das vorhandene App-Icon ist ein visuelles Asset, **kein Screenshot und kein Funktionsnachweis**.
+
+## Vom Ziel zur nächsten Handlung
+
+Die folgenden Bilder zeigen **die tatsächlich laufende App im iOS-Simulator** (iPhone 17 Pro, iOS 26.5, Expo Go 57.0.9), ausschließlich mit synthetischen Zielen und Einträgen. Keine Mockups, keine Web-Vorschau, kein Nachweis eines signierten App-Builds oder eines physischen Geräts. Der lokale Helfer ist aktiv; Apple Intelligence / Gemini Nano wurden nicht ausgeführt.
+
+### 1 · Ziele überschaubar halten
+
+<img src="assets/screenshots/goals.png" alt="Echte iOS-Simulatoraufnahme der Zielübersicht mit zwei ausdrücklich synthetischen Monatszielen" width="300">
+
+Zwei Monatsziele machen den nächsten Fokus sichtbar: Bewegung und Lesen. Die dargestellten 62 % und 43 % stammen aus dem heuristischen Tempo-Modell mit erfundenen Einträgen — nicht aus gemessenen Nutzererfolgen.
+
+### 2 · Eine Alltagshandlung dem richtigen Ziel zuordnen
+
+<img src="assets/screenshots/daily-action.png" alt="Echte iOS-Simulatoraufnahme eines Workout-Schnelleintrags für Bewegung im Alltag mit synthetischer Notiz" width="300">
+
+Der Schnelleintrag übernimmt Ziel, Eintragstyp und Kategorie. Das Bild zeigt die ausgefüllte Notiz **vor** dem Speichern; anschließend wurde der Eintrag über die App gespeichert und in der isolierten SQLite-Datenbank nachgewiesen.
+
+### 3 · Den Verlauf einordnen und einen kleinen Impuls finden
+
+<img src="assets/screenshots/progress-mentoring.png" alt="Echte iOS-Simulatoraufnahme der Übersicht nach dem Speichern: 66 Prozent Gesundheit, 43 Prozent Wachstum, Vorschau eines lokalen Mentoring-Impulses und Hinweis auf fehlende On-Device-KI" width="300">
+
+Nach dem synthetischen Workout zeigt Gesundheit 66 % statt 62 %; Wachstum bleibt bei 43 %. Das belegt die Reaktion dieses Prototyp-Pfads, **keine kalibrierte Wahrscheinlichkeit oder Wirksamkeit**. Die Vorschlagsvorschau ist im Original-UI auf drei Zeilen gekürzt; der vollständige Impuls ließ sich öffnen. Der Hinweis auf nicht verfügbare On-Device-KI bleibt bewusst sichtbar.
+
+[Aufnahmeherkunft, synthetischer Datensatz und Bildhashes](docs/SCREENSHOTS.json) · [Prüfumfang und Grenzen](docs/VALIDATION.md)
 
 ## Produktfluss
 
@@ -20,7 +44,7 @@ Der angestrebte Nutzen ist weniger Abstand zwischen Vorhaben und Alltag. **Eine 
 
 | Einordnung | Stand im inspizierten Quellcode |
 | --- | --- |
-| Implementierte Prototyp-Pfade | Zielhierarchie, manuelle Logs, Journal, Zielbearbeitung, Momentum-Ansicht, Export und lokale Löschung. Hier nicht als vollständige App ausgeführt. |
+| Implementierte Prototyp-Pfade | Zielhierarchie, manuelle Logs, Journal, Zielbearbeitung, Momentum-Ansicht, Export und lokale Löschung. Zielübersicht → Workout-Schnelleintrag → aktualisierte Übersicht und Vorschlagsdetail hier im iOS-Simulator ausgeführt; übrige Pfade nur statisch inspiziert. |
 | Lokale Datenverarbeitung | SQLite für App-Inhalte; Berechnung des On-Track-Werts getrennt von Sprachgenerierung. Anmeldung nutzt einen externen Dienst. |
 | On-Device-Modellpfad | Adapter für Apple Foundation Models / Gemini Nano über `expo-local-llm`, inklusive Verfügbarkeitsprüfung. Native Integration vorhanden, erfolgreicher Geräteeinsatz hier **nicht** nachgewiesen. |
 | Deterministischer Ersatz | Routing auf einen lokalen Helfer bei fehlendem oder ladendem OS-Modell; Regeln und Textvorlagen statt Cloud-LLM. Ausgewählte reine Funktionen sind hier ausführbar. |

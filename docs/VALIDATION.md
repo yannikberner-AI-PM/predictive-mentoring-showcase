@@ -1,31 +1,47 @@
 # Lokale Validierung
 
-## Ausgeführter Umfang
+## Eigenständiges Showcase
 
-Die Vorbereitung wurde mit Node.js **v26.7.0** und Python **3.9.6** auf macOS lokal geprüft. Mindestziel für die eigenständigen Node-Tests ist Node.js 22.18; ein separater Lauf mit dieser Mindestversion wurde nicht durchgeführt. Keine externen Pakete installiert, kein Konto verwendet und kein Modell heruntergeladen.
+Node.js **v26.7.0**, Python **3.9.6**, macOS. Mindestziel für die Node-Tests ist 22.18; diese Mindestversion wurde nicht separat ausgeführt. Die Showcase-Prüfung benötigt keine Installation, Konten oder Zugangsdaten:
 
 ```bash
 npm test
 npm run validate
-# Optional: Quell-Fingerprints gegen den privaten Projektstamm prüfen
+# Optional: ausschließlich lesender Vergleich mit dem privaten Projektstamm
 python3 scripts/validate.py --source ../predictive-app
-# Alle Dateien sind zunächst untracked: Whitespace-Prüfung ohne Staging
- git diff --no-index --check -- /dev/null README.md
+
+git diff --check
 ```
 
-Der letzte Befehl illustriert die Prüfung einer Datei; bei der Vorbereitung wurden alle textuellen Nutzdateien so geprüft. Ein gewöhnliches `git diff --check` allein würde untracked Dateien nicht erfassen.
+- **17 Tests:** 15 Tests der kuratierten Originalfunktionen sowie zwei Screenshot-/Dokumentationschecks. Keine Aussage zur gesamten App-Qualität.
+- Exaktes Allowlist-Inventar und SHA-256-Manifest aller Nutzdateien außer dem Manifest selbst. `.git/` gehört nicht zum öffentlichen Inventar.
+- Sieben unverändert übernommene Dateien (sechs TypeScript-Dateien, ein Icon); 26 zusätzliche Analyse-Fingerprints in [PROVENANCE.json](PROVENANCE.json).
+- Drei echte App-Aufnahmen, Dateihashes, Dimensionen und komprimierte Bilddaten gegen [SCREENSHOTS.json](SCREENSHOTS.json). Nur PNG-Chunks `IHDR`, `IDAT`, `IEND`; keine EXIF-/Textmetadaten. Das Manifest dokumentiert zusätzlich 16 Quell-Fingerprints des ausgeführten Ausschnitts.
+- Lokale Markdown-Dateiverweise und begrenzter Mustercheck für Schlüssel, ausgewählte Tokenformen und absolute Benutzerpfade. Kein vollständiger Security-Audit.
 
-## Ergebnisse
+## Tatsächlich ausgeführter Simulator-Pfad · 26. Oktober 2026
 
-- **15 Tests bestanden**, 0 fehlgeschlagen, 0 übersprungen: Apple-/Android-Routing, fehlende Verfügbarkeit, erzwungener lokaler Helfer, Vorlage und Cold Start, Trends, Schwellen, nicht-endliche Eingaben, Chat-Kürzung, Kategorien und Kontozuordnung.
-- Sechs Original-TypeScript-Dateien und ein vorhandenes App-Icon unverändert kopiert; SHA-256-Prüfung der sieben übernommenen Dateien. Weitere 26 Quell-Fingerprints dokumentieren die Analysebelege, ohne deren Inhalte zu veröffentlichen.
-- Exakte Dateiliste, Dateimanifest und lokale Markdown-Dateiverweise werden durch `scripts/validate.py` geprüft. Das Manifest enthält alle Nutzdateien außer sich selbst; `.git/` gehört nicht zum öffentlichen Inventar.
-- Das Icon wurde visuell geprüft: abstrakte farbige Form ohne Text oder sichtbare Personendaten. PNG-Chunks ausschließlich `IHDR`, `IDAT`, `IEND`; keine Text-/EXIF-Chunks. Unverändertes Asset, kein Beweis für eine gerenderte App oder für geklärte Markenrechte.
-- Begrenzter Mustercheck für private Schlüssel, ausgewählte Tokenformen und absolute Benutzerpfade. Keine Garantie vollständiger Geheimnisfreiheit oder rechtlicher Freigabe.
-- Eigenständiges neues Git-Repository auf `docs/initial-showcase`; keine Commits, kein Remote und keine Veröffentlichung. Die private Quellhistorie wurde nicht kopiert.
+**iPhone 17 Pro · iOS 26.5 · Expo Go 57.0.9 · Expo 57.0.16 · React Native 0.86.2.** Kein Web-Rendering, kein signierter eigener App-Build, kein physisches Gerät.
 
-## Bewusst nicht geprüft
+1. Den committed App-Quellstand ohne private Git-Historie in eine Scratch-Kopie archiviert. Keine dotenv-Dateien, persönlichen App-Zustände, Zugangsdaten oder Datenbanken übernommen. Die bestehenden Änderungen im privaten Projekt blieben unangetastet.
+2. Einen neuen, ausschließlich hierfür angelegten Simulator mit frischem Expo-Go-App-Container verwendet. Ohne Supabase-Konfiguration und mit `EXPO_NO_DOTENV=1` gestartet. Nur den vorhandenen lokalen Development-Session-Pfad genutzt, kein externes Konto und keine echte Anmeldung.
+3. Eine temporäre Scratch-Initialisierung legte über die vorhandenen App-Funktionen zwei synthetische Ziele und 14 erfundene Logs an und markierte das Onboarding als abgeschlossen. Danach Initialisierung entfernt, sämtliche getrackten App-Dateien byteweise mit dem archivierten Original verglichen und die App vollständig neu gestartet. **Keine UI- oder Berechnungsänderung für die Aufnahmen.**
+4. Über die echte App-Oberfläche: Zielübersicht → Bewegungsziel → „Heute eintragen“ → synthetische Notiz → „Eintrag speichern“. Der Schnelleintrag-Screenshot entstand vor dem Speichern.
+5. Den tatsächlich gespeicherten Datensatz ausschließlich im neuen Simulator-Container lesend nachgewiesen: Workout mit Wert 1, exakte synthetische Notiz, mit dem vorgesehenen Ziel verknüpft. Danach 10 Workouts und 5 Habit-Logs bei zwei Zielen. Der Gesundheitswert wechselte von 62 % auf 66 %, Wachstum blieb bei 43 %.
+6. Die aktualisierte Übersicht aufgenommen und das Vorschlagsdetail geöffnet. Die App zeigte ausdrücklich „On-device KI nicht verfügbar“; der lokale deterministische Helfer war aktiv. Das öffnet keine Aussage über Apple Intelligence oder Gemini Nano.
+7. Alle drei Bilder assistentengestützt visuell geprüft: lesbar, keine persönlichen Daten, keine Fehler-/Entwickler-Overlays, keine Tastatur. Die Vorschlagsvorschau wird vom Original-UI auf drei Zeilen gekürzt. Statusleiste über Simulator-Funktion auf 09:41 / volle Batterie gesetzt; Expo-Go-Entwicklerbutton per Client-Präferenz ausgeschaltet. Nur Metadaten entfernt, kein Zuschnitt, keine Pixelretusche, keine Montage.
 
-Kein React-Native-/Expo-Build, keine Emulator-/Geräteprüfung, kein laufendes OS-Modell, kein App-End-to-End-Test, kein Auth-Integrationstest, keine Datenbankmigration unter Laufzeitbedingungen, kein Dependency-/Penetrationstest und keine Wirkungsmessung. Die Prozentwerte und `confidence`-Labels wurden hier nicht kalibriert oder wissenschaftlich validiert.
+### App-Repository-Gates in der isolierten Kopie
 
-Vor einer Veröffentlichung sind Eigentümerfreigabe der Texte, Auszüge und Assets sowie ein privater Sicherheitskontakt offen. Für einen App-Release sind zusätzliche Integrations-, Datenschutz- und fachliche Prüfungen erforderlich.
+- `npm run typecheck`: **Exit 0**.
+- `npm test`: **78/78 Tests**, 25 Suites, keine übersprungenen Tests; **Exit 0**.
+- `npm run doctor`: **Exit 1**, 20/21 Checks; 11 Patchversionsabweichungen. Kein Native-/Release-Pass.
+- `npm run audit:critical`: **Exit 1**; 15 gemeldete Abhängigkeitsschwachstellen (3 moderate, 11 hohe, 1 kritische). Kritisch: `shell-quote`, [GHSA-pqg4-j6r4-53mv](https://github.com/advisories/GHSA-pqg4-j6r4-53mv). Keine Behebung im privaten Projekt im Rahmen dieser Screenshot-Aufgabe. Der öffentliche Showcase fügt keine App-Runtime-Abhängigkeiten hinzu.
+
+Beim Aufsetzen traten eine auf IPv6 begrenzte Metro-Verbindung sowie Fehler während temporärer Entry-Point-/Fast-Refresh-Änderungen auf (`main`/`ExpoAsset`). Nach Wiederherstellung des Originals und vollständigem Beenden/Neustarten von Expo Go lief der dokumentierte Pfad; diese Anlauffehler sind keine verschwiegenen bestandenen Checks. Neue Fehler nach dem finalen Neustart wurden im Metro-Log nicht beobachtet. Wegen fehlender Simulator.app-Oberfläche wurde die native UI über XCTest mit `agent-device` bedient; die Bilder stammen von `simctl io screenshot`, nicht aus nachgebautem HTML.
+
+## Grenzen und Veröffentlichungsumfang
+
+Kein vollständiger App-End-to-End-Test: Onboarding, externe Authentifizierung, Kontowechsel, Export/Löschung, Sensoren, Push und Android wurden in dieser Runde nicht durchlaufen. Kein laufendes OS-Modell, keine signierte eigene App, keine Store-/Compliance-Freigabe. Die frische SQLite-Initialisierung lief im Simulator, nicht eine Upgrade-Migrationsmatrix. Keine Prognosekalibrierung, Wirkungsmessung, unabhängige Human-Evaluation oder Penetrationsprüfung.
+
+Veröffentlicht werden ausschließlich die freigegebenen Showcase-Dateien auf `feat/product-screenshots` beziehungsweise dem daraus fast-forward aktualisierten öffentlichen `main`. Der vollständige Produktcode, seine Historie, Konfiguration, Sessions und die synthetische Laufzeitdatenbank bleiben außerhalb des Showcase. Die Eigentümerfreigabe für Implementierung und Veröffentlichung liegt für diese Aufgabe vor. Ein App-Release bleibt insbesondere wegen der fehlgeschlagenen Dependency-/Doctor-Gates ausdrücklich **nicht freigegeben**.

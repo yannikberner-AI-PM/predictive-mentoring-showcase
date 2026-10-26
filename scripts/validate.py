@@ -10,6 +10,9 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED = {
     '.gitignore', 'README.md', 'LICENSE', 'MANIFEST.sha256', 'package.json',
     'assets/app-icon.png', 'components/README.md',
+    'assets/screenshots/goals.png', 'assets/screenshots/daily-action.png',
+    'assets/screenshots/progress-mentoring.png', 'docs/SCREENSHOTS.json',
+    'tests/screenshots.test.mjs',
     'components/src/db/types.ts', 'components/src/db/categories.ts',
     'components/src/db/dataOwnerPolicy.ts',
     'components/src/services/llm/types.ts',
@@ -56,6 +59,27 @@ def check():
             assert sha(ROOT / row['destination']) == row['sha256']
         if args.source:
             assert sha(args.source / source) == row['sha256'], 'Source changed: ' + str(source)
+    screenshots = json.loads((ROOT / 'docs/SCREENSHOTS.json').read_text())
+    assert screenshots['schema_version'] == 1
+    assert screenshots['data_classification'] == 'synthetic-only'
+    assert screenshots['capture_kind'] == 'native-ios-simulator'
+    images = screenshots['files']
+    assert len(images) == 3
+    assert {r['file'] for r in images} == {
+        p for p in EXPECTED if p.startswith('assets/screenshots/')
+    }
+    for row in images:
+        assert sha(ROOT / row['file']) == row['sha256'], 'Screenshot hash mismatch'
+        dimensions = struct.unpack('>II', (ROOT / row['file']).read_bytes()[16:24])
+        assert dimensions == (row['width'], row['height']) == (1206, 2622)
+        for field in ('original_capture_sha256', 'idat_sha256'):
+            assert re.fullmatch('[a-f0-9]{64}', row[field])
+    for row in screenshots['source']['fingerprints']:
+        source = Path(row['source'])
+        assert not source.is_absolute() and '..' not in source.parts
+        assert re.fullmatch('[a-f0-9]{64}', row['sha256'])
+        if args.source:
+            assert sha(args.source / source) == row['sha256'], 'Screenshot source changed: ' + str(source)
     links = 0
     for name in actual:
         p = ROOT / name
@@ -64,11 +88,18 @@ def check():
             assert data[:8] == b'\x89PNG\r\n\x1a\n'
             offset = 8
             chunks = []
+            image_payload = b''
             while offset < len(data):
                 size = struct.unpack('>I', data[offset:offset + 4])[0]
-                chunks.append(data[offset + 4:offset + 8])
+                kind = data[offset + 4:offset + 8]
+                chunks.append(kind)
+                if kind == b'IDAT':
+                    image_payload += data[offset + 8:offset + 8 + size]
                 offset += size + 12
             assert offset == len(data) and set(chunks) <= {b'IHDR', b'IDAT', b'IEND'}
+            if name.startswith('assets/screenshots/'):
+                row = next(r for r in images if r['file'] == name)
+                assert hashlib.sha256(image_payload).hexdigest() == row['idat_sha256']
             continue
         text = p.read_text()
         # Narrow patterns only: a pass is not a general secret-freedom guarantee.
@@ -90,7 +121,7 @@ def check():
         len(actual), len(manifest), len(copied), links))
     if args.source:
         print('OK: {} source fingerprints match private working tree (read-only)'.format(
-            len(copied) + len(provenance['analysis_evidence'])))
+            len(copied) + len(provenance['analysis_evidence']) + len(screenshots['source']['fingerprints'])))
 
 
 if __name__ == '__main__':
