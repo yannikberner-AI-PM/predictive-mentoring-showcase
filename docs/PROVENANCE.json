@@ -1,0 +1,154 @@
+{
+  "source_root": "predictive-app",
+  "method": "Selected local working-tree files; no private Git history or commit metadata copied. SHA-256 fingerprints are not an authorship or runtime proof.",
+  "copied": [
+    {
+      "source": "apps/predictive/src/db/types.ts",
+      "destination": "components/src/db/types.ts",
+      "sha256": "6a599eb698d61a3a9611edd7886a62d4902abf0f1811fde7678ee951febe0a86",
+      "mode": "unchanged-file"
+    },
+    {
+      "source": "apps/predictive/src/db/categories.ts",
+      "destination": "components/src/db/categories.ts",
+      "sha256": "e5cddbf1b90aa6accbb38c51bb819b9b9a28972bd1880426a0de7032dcc4ac8f",
+      "mode": "unchanged-file"
+    },
+    {
+      "source": "apps/predictive/src/db/dataOwnerPolicy.ts",
+      "destination": "components/src/db/dataOwnerPolicy.ts",
+      "sha256": "febd5a389a30e48dc39add89284013de5ce363839a257c287e2c04564ab73e8f",
+      "mode": "unchanged-file"
+    },
+    {
+      "source": "apps/predictive/src/services/llm/types.ts",
+      "destination": "components/src/services/llm/types.ts",
+      "sha256": "b9c3d7f8afe25d55a213e7890643a2a740e0269b85943093ed2f00277b9a5a96",
+      "mode": "unchanged-file"
+    },
+    {
+      "source": "apps/predictive/src/services/llm/routing.ts",
+      "destination": "components/src/services/llm/routing.ts",
+      "sha256": "d0dfe75578f2ceb0cf350acdc1fc93e07705438e3a7beef1b8d65012d58aba11",
+      "mode": "unchanged-file"
+    },
+    {
+      "source": "apps/predictive/src/services/llm/fallback.ts",
+      "destination": "components/src/services/llm/fallback.ts",
+      "sha256": "78433fa0ee7c3547ca35bc2910638abf94670d0b6bdf66d5c7b2dca983c07b95",
+      "mode": "unchanged-file"
+    },
+    {
+      "source": "apps/predictive/assets/icon.png",
+      "destination": "assets/app-icon.png",
+      "sha256": "5ef90f7f74beb88582ba6384084dd8437c8bcaeffaf4afcbb093d066400a1c85",
+      "mode": "unchanged-file"
+    }
+  ],
+  "analysis_evidence": [
+    {
+      "source": "apps/predictive/App.tsx",
+      "sha256": "e4d35a9f3a64008fbd058131c235726ce76b3aadf1b0ee26ff4d4d00a204c152"
+    },
+    {
+      "source": "apps/predictive/src/db/client.ts",
+      "sha256": "fabfac8e3c896254dbeb5b4c5be5bd1011659d3e84ec433e4f5b5a2e7a8da87c"
+    },
+    {
+      "source": "apps/predictive/src/db/schema.ts",
+      "sha256": "3927ec1a8d79405220e01667e83ac720d62d95a4c14d163c1f18464b09506888"
+    },
+    {
+      "source": "apps/predictive/src/db/goals.ts",
+      "sha256": "7fb4df7f533f72b3561b82297505ff722b08ea23c3d8b341bfed8d5254e39ef8"
+    },
+    {
+      "source": "apps/predictive/src/db/datapoints.ts",
+      "sha256": "0f7b048528edb7af2c41829dec07bd08cb76412bd79a194753ef0a96e0b7cc71"
+    },
+    {
+      "source": "apps/predictive/src/db/meta.ts",
+      "sha256": "dbe99c72cbfbc43d080a27d2723210155e8d70795ed9df41df8e1f88edb09d6d"
+    },
+    {
+      "source": "apps/predictive/src/db/dataOwner.ts",
+      "sha256": "d9b6e915003e41ff562d8ed892e5159fc0cfae730533e33a7055637acbcb395f"
+    },
+    {
+      "source": "apps/predictive/src/db/momentum.ts",
+      "sha256": "251fecca4c9469a9ec9e135313fa8271b14ecba70405bf7b2bfbff6593e9c759"
+    },
+    {
+      "source": "apps/predictive/src/lib/auth.tsx",
+      "sha256": "0842829589e8ea6e2604bb854536c841081753b04d58a600e0ce89d4497ddaa1"
+    },
+    {
+      "source": "apps/predictive/src/lib/supabase.ts",
+      "sha256": "9bf203cb4efb65dfe2ba78f9cfce356a9b6ecf0e16883f9211697665adc46cf2"
+    },
+    {
+      "source": "apps/predictive/src/screens/OnboardingScreen.tsx",
+      "sha256": "67d778dca2afad980a686328a1c662970171cab74cd04660eaa5d61d9dd97a35"
+    },
+    {
+      "source": "apps/predictive/src/screens/QuickLogScreen.tsx",
+      "sha256": "b6286e121c1bc7f22c83babc6c94584231783b9928e9b85be94c2ef73e4dc5ef"
+    },
+    {
+      "source": "apps/predictive/src/screens/JournalScreen.tsx",
+      "sha256": "c52cf398d2e11bee4f84f1069639d0cc7619e1f1da74561aba2070354640bceb"
+    },
+    {
+      "source": "apps/predictive/src/screens/MomentumScreen.tsx",
+      "sha256": "d4db4f8dcc886192be786aadccda66d7f23ec892259eb16c3d12d1c47b19bd76"
+    },
+    {
+      "source": "apps/predictive/src/screens/ExportDataScreen.tsx",
+      "sha256": "0a3325abb4969be7541ea2eef3840a454dac1ca2ab75595735589533676b9dba"
+    },
+    {
+      "source": "apps/predictive/src/screens/DeleteDataScreen.tsx",
+      "sha256": "12c2089a4c44b2fd9c5d84f4d00b802f00933701284d451a01531bd5e1030d2c"
+    },
+    {
+      "source": "apps/predictive/src/screens/connectionAvailability.ts",
+      "sha256": "d28edd5b88288e0ad988c01462c82cfbed511b5f6a51250e4f415b5f5fd195a4"
+    },
+    {
+      "source": "apps/predictive/src/screens/SuggestionScreen.tsx",
+      "sha256": "b9ed8cae9a0572d9992a879eb5619168dad89573e23dd85d2c11a8bde6cc9223"
+    },
+    {
+      "source": "apps/predictive/src/screens/CoachingChatScreen.tsx",
+      "sha256": "35625077700a9956388857ccd613f9360dd03254e7bf0f227f26f064e80f8bdf"
+    },
+    {
+      "source": "apps/predictive/src/services/prediction/model.ts",
+      "sha256": "2e22dcf0602d749c98b56994416f20f7e04612c8de4d76eb0f8d6be0262519ad"
+    },
+    {
+      "source": "apps/predictive/src/services/prediction/observe.ts",
+      "sha256": "cd54803e73b3259ca51b2e3efc79bffb50da1650407ee656e690f0bf9d48aa8f"
+    },
+    {
+      "source": "apps/predictive/src/services/prediction/types.ts",
+      "sha256": "415084b527319520528d1863216cffee74b7c36ffbc04604f7d0d298a6159020"
+    },
+    {
+      "source": "apps/predictive/src/services/llm/capability.ts",
+      "sha256": "25dd6ea7aaaa531d760521a92444e914abd55e16d3523346a6f014c07e4116b9"
+    },
+    {
+      "source": "apps/predictive/src/services/llm/providers/onDevice.ts",
+      "sha256": "0bd41d9515b36d6792880369a08551098a3364c5508b57fa782457a5d2c393cf"
+    },
+    {
+      "source": "apps/predictive/src/services/llm/providers/onDeviceShared.ts",
+      "sha256": "ed5d93f0113b966b78d090f85b555ca82936000e72837965c5762f69e4eaff40"
+    },
+    {
+      "source": "apps/predictive/src/services/llm/providers/local.ts",
+      "sha256": "c58f7275ec79b7a13c9ea3ae700fb07e4573536c63e5259c155f2d8c685fe6b8"
+    }
+  ]
+}
